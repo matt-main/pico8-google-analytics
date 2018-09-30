@@ -8,7 +8,7 @@ It's very important to understand what's going on in your games and how players 
 
 ## Setup
 
-1. Add the code from [`event.lua`](./event.lua) to your PICO-8 source code. This will expose the `event()` function for tracking.
+1. Add the code from [`event.lua`](./event.lua) to your PICO-8 source code. This will expose the `event()` function for tracking. The code uses 144 tokens in PICO-8.
 
 2. Add a Google Analytics snippet to your exported game HTML file, refer to this
 [link](https://developers.google.com/analytics/devguides/collection/analyticsjs/).
@@ -39,11 +39,21 @@ event('level 1','win','perfect',64)
 The `event()` function is modelled after the Google Analytics send event method, i.e. event category and action are required and event label and value are optional.
 
 ### Notes
+
 - The data to be sent via the `event()` function cannot exceed 128 bytes.
 - Obviously, event tracking will only work with the HTML version of your games.
-- If you host your game on pages like itch.io (i.e. where you game is embedded via iFrame) you should:  
+- If you host your game on pages like itch.io (i.e. where your game is embedded via iFrame) you should:  
   - set the cookie option of the analytics snippet to 'none' (as in [`example-analytics-snippet.js`](./example-analytics-snippet.js).
   - use a separate Google Analytics property, because otherwise you will get a duplicate user count from your itch game page (if you use tracking there) and the actual iFrame of the game.
 
+### Tips for testing
+
+- Testing from a local html file (e.g. your-game.html) won't work since Google Analytics will block such requests.
+- Instead, either
+   - upload the game files to a server (or itch page) and test from there
+   - or run a local webserver. A simple solution can be [`local-web-server`](https://www.npmjs.com/package/local-web-server) (installed via npm).
+- You can use this excellent [Google Analytics Debugger](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=de) with Google Chrome to check for problems with your analytics snippet and to see if the event hits are fired correctly. [Here](https://twitter.com/mtths_flk/status/1045647528811798528) is a short video of the example cart with the Analytics Debugger in action.
+
+
 ## Feedback
-You can use the [issue tracker](https://github.com/mtthsflk/pico8-google-analytics/issues).
+You can use the [issue tracker](https://github.com/mtthsflk/pico8-google-analytics/issues) for feedback and requests.
