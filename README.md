@@ -1,4 +1,4 @@
-# pico8-google-analytics
+# Google Analytics for PICO-8
 Easy Google Analytics event tracking for all your PICO-8 games.
 
 ![PICO-8 Google Analytics example](https://i.imgur.com/MGM435n.png)
