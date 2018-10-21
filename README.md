@@ -45,6 +45,7 @@ The `event()` function is modelled after the Google Analytics send event method,
 - If you host your game on pages like itch.io (i.e. where your game is embedded via iFrame) you should:  
   - set the cookie option of the analytics snippet to 'none' (as in [`example-analytics-snippet.js`](./example-analytics-snippet.js).
   - use a separate Google Analytics property, because otherwise you will get a duplicate user count from your itch game page (if you use tracking there) and the actual iFrame of the game.
+  - be aware that with some browsers (Safari) tracking via an embedded iFrame might not work.
 
 ### Tips for testing
 
